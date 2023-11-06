@@ -9,8 +9,8 @@ const Character = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const character = fetchCharacterById(5);
-    setCharacter(character);
+    
+    fetchCharacterById(id).then(setCharacter);
   }, [id]);
 
   return <Section>

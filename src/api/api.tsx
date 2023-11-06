@@ -1,4 +1,4 @@
-import { ApolloClient, InMemoryCache, HttpLink, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache, HttpLink, gql} from '@apollo/client';
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -7,10 +7,10 @@ const client = new ApolloClient({
   }),
 });
 
-// Функція для виконання запиту на основі ідентифікатора персонажа
-function fetchCharacterById(characterId: number) {
-  client
-    .query({
+
+async function fetchCharacterById(characterId: number) {
+  try {
+    const result = await client.query({
       query: gql`
         query GetCharacter($id: ID!) {
           character(id: $id) {
@@ -18,25 +18,85 @@ function fetchCharacterById(characterId: number) {
             name
             status
             species
-            type
             gender
             image
-            origin
+            type
+            origin { name }
+            location{ name }
           }
         }
       `,
       variables: {
         id: characterId,
       },
-    })
-    .then(result => {
-      const characterData = result.data.character;
-      console.log(characterData);
-      // Тут ви можете обробити дані про персонажа
-    })
-    .catch(error => {
-      console.error(error);
     });
+    const characterData = result.data.character;
+    return characterData;
+  } catch (error) {
+    console.log(error);
+  }
 }
+
+
+export async function fetchCharacters(page: number) {
+  try {
+    const result = await client.query({
+      query: gql`
+        query GetCharacters($page: Int!) {
+          characters(page: $page) {
+            results {
+              id
+              name
+              status
+              species
+              image
+              location{ name }
+              origin { name }
+            }
+          }
+        }
+      `,
+      variables: {
+        page
+      },
+    });
+
+    const characters = result.data.characters.results;
+    return characters;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
+
+
+export async function fetchCharactersLimited(count: number) {
+  try {
+    const result = await client.query({
+      query: gql`
+        query GetCharacters($count: Int) {
+          characters(count: $count) {
+            results {
+              name
+              
+            }
+          }
+        }
+      `,
+      variables: {
+        count
+      },
+    });
+
+    const characters = result.data.characters.results;
+    return characters;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
+
 
 export default fetchCharacterById
