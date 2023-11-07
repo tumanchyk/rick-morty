@@ -1,11 +1,15 @@
-import { Card, ImgWrap, Img, CharacterInfo, Name, InfoTitle, InfoValue, Status } from "./Character.styled";
+import { Card, ImgWrap, Img, CharacterInfo } from "./Character.styled";
+import { Name, InfoTitle, InfoValue, Status, StatusDot } from "../Common/CharacterInfo.styled";
 
 const CharacterCard = ({ characterData: {image, name, origin, gender, location, species, status, type} }) => {
     return <Card>
         <ImgWrap><Img src={image} /></ImgWrap>
         <CharacterInfo>
             <Name>{name}</Name>
-            <Status>{status} - {species}</Status>
+            <Status>
+                {status === "unknown" ? <StatusDot color={"#9E9E9E"} /> : ( status === "Dead" ? <StatusDot color={"#D63D2E"}/> : <StatusDot color={"#55CC44"} />)}
+                {status} - {species}
+            </Status>
             <InfoTitle>Origin:</InfoTitle>
             <InfoValue>{origin?.name}</InfoValue> 
             <InfoTitle>Gender:</InfoTitle>

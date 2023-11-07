@@ -24,7 +24,6 @@ const PaginationBar = ({ setCurrentPage, currentPage }) => {
             itemSize: 34,
             itemActiveBg: "#F5F5F5",
             colorTextDisabled: "#9E9E9E",
-
             
           }
         }
