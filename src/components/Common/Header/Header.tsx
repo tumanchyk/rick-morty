@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { HeaderEl } from "./Header.styled"
-import logo from "../../../assets/logo.svg"
+import logo from "../../../assets/logo.svg";
+import { HeaderEl } from "./Header.styled";
+
 const Header = () => {
   return <HeaderEl>
     <Link to={"/"}>

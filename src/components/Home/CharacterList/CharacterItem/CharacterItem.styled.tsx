@@ -5,6 +5,7 @@ width: calc((100% - 27px) / 2);
 background: #3C3E44;
 border-radius: 9px;
 overflow: hidden;
+display: flex;
 `
 const ImgWrap = styled.div`
 min-height: 100%;

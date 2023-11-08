@@ -1,8 +1,8 @@
-import { FooterEl, FooterWrap, Text, LogoBg, Logo, SocialList, Year } from "./Footer.styled";
 import incodeLogo from "../../../assets/incode-logo.png";
 import githubIcon from "../../../assets/socials/github-icon.svg";
 import twitterIcon from "../../../assets/socials/twitter-icon.svg";
 import heartIcon from "../../../assets/socials/heart-icon.svg";
+import { FooterEl, FooterWrap, Text, LogoBg, Logo, SocialList, Year } from "./Footer.styled";
 
 const Footer = () => {
     return <FooterEl>

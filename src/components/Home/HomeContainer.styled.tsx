@@ -7,5 +7,5 @@ width: 100%;
 export const Container = styled.div`
 width: 1440px;
 padding: 24px 106px 16px;
-
+margin: 0 auto;
 `

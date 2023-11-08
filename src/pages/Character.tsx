@@ -1,20 +1,23 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 import CharacterCard from "../components/Character/CharacterCard";
 import { Section } from "../components/Character/Character.styled";
-import fetchCharacterById from "../api/api";
+import { getCharacterById } from "../store/characters/charactersOperations";
 
 const Character = () => {
-  const [character, setCharacter] = useState({});
   const { id } = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    
-    fetchCharacterById(id).then(setCharacter);
-  }, [id]);
+    if (id) {
+    const characterId: number = parseInt(id, 10);
+    dispatch(getCharacterById(characterId));
+  }
+  }, [dispatch, id]);
 
   return <Section>
-    <CharacterCard characterData={character} />
+    <CharacterCard />
   </Section>
 };
 export default Character;

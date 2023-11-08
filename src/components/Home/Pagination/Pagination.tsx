@@ -1,9 +1,17 @@
 import { Pagination, ConfigProvider } from 'antd';
 import type { PaginationProps } from 'antd';
+import { useSelector } from "react-redux";
+import { selectTotalCharacters } from '../../../store/characters/charactersSelectors';
 
-const PaginationBar = ({ setCurrentPage, currentPage }) => {
-    
-    const onChange: PaginationProps['onChange'] = (page) => {
+interface PaginationBarProps {
+  setCurrentPage: (page: number) => void;
+  currentPage: number;
+}
+
+const PaginationBar: React.FC<PaginationBarProps> = ({ setCurrentPage, currentPage }) => {
+  const total = useSelector(selectTotalCharacters);
+
+  const onChange: PaginationProps['onChange'] = (page) => {
     setCurrentPage(page);
   };
 
@@ -28,7 +36,7 @@ const PaginationBar = ({ setCurrentPage, currentPage }) => {
           }
         }
       }}>
-      <Pagination current={currentPage} onChange={onChange} total={300} pageSize={20} showSizeChanger={false} />
+      <Pagination current={currentPage} onChange={onChange} total={total} pageSize={20} showSizeChanger={false} />
       </ConfigProvider>
     </div>
 }

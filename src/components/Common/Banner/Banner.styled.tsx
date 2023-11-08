@@ -6,6 +6,7 @@ export const Container = styled.section`
     position: relative;
     width: 1440px;
     height: 345px; 
+    margin: 0 auto;
     background: #fff url(${bgImg}) no-repeat;
     background-position: 50% 50%;
 `

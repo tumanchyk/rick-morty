@@ -1,20 +1,12 @@
-import { ApolloClient, InMemoryCache, HttpLink, gql} from '@apollo/client';
+import {gql} from '@apollo/client';
+import { client } from './server';
 
-const client = new ApolloClient({
-  cache: new InMemoryCache(),
-  link: new HttpLink({
-    uri: 'https://rickandmortyapi.com/graphql',
-  }),
-});
-
-
-async function fetchCharacterById(characterId: number) {
+export async function fetchCharacterById(characterId: number) {
   try {
     const result = await client.query({
       query: gql`
         query GetCharacter($id: ID!) {
           character(id: $id) {
-            id
             name
             status
             species
@@ -44,6 +36,9 @@ export async function fetchCharacters(page: number) {
       query: gql`
         query GetCharacters($page: Int!) {
           characters(page: $page) {
+            info {
+              count
+            }
             results {
               id
               name
@@ -61,8 +56,9 @@ export async function fetchCharacters(page: number) {
       },
     });
 
-    const characters = result.data.characters.results;
-    return characters;
+    const characters = result.data.characters.results.slice(0, 6);
+    const total = result.data.characters.info.count;
+    return {characters, total};
   } catch (error) {
     console.error(error);
   }
@@ -70,33 +66,3 @@ export async function fetchCharacters(page: number) {
 
 
 
-
-export async function fetchCharactersLimited(count: number) {
-  try {
-    const result = await client.query({
-      query: gql`
-        query GetCharacters($count: Int) {
-          characters(count: $count) {
-            results {
-              name
-              
-            }
-          }
-        }
-      `,
-      variables: {
-        count
-      },
-    });
-
-    const characters = result.data.characters.results;
-    return characters;
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-}
-
-
-
-export default fetchCharacterById
