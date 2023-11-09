@@ -5,10 +5,12 @@ import { useDispatch } from "react-redux";
 import CharacterCard from "../components/Character/CharacterCard";
 import { Section } from "../components/Character/Character.styled";
 import { getCharacterById } from "../store/characters/charactersOperations";
+import { store } from "../store/store";
 
 const Character: React.FC = () => {
     const { id } = useParams();
-    const dispatch = useDispatch();
+    type AppDispatch = typeof store.dispatch
+    const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
         if (id) {

@@ -11,7 +11,7 @@ export const getCharacterById = createAsyncThunk<ICharacter, number>(
             const characterData = await fetchCharacterById(characterId);
             return characterData;
         } catch (error) {
-            return rejectWithValue(error.message);
+            return rejectWithValue(error);
         }
     },
 );
@@ -23,7 +23,7 @@ export const getCharacters = createAsyncThunk<IFetchCharactersResponse, number>(
             const { characters, total } = await fetchCharacters(page) as IFetchCharactersResponse;
             return { characters, total };
         } catch (error) {
-            return rejectWithValue(error.message);
+            return rejectWithValue(error);
         }
-    },
+    }
 );
