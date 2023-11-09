@@ -6,7 +6,7 @@ import { fabIcon } from "../../../assets/fab-icons";
 import downloadCSV from "../../../unils/dowloadCSV";
 import { selectCharacters } from "../../../store/characters/charactersSelectors";
 
-import { FabWrap, FabItem } from "./Fab.styled";
+import { FabWrap, FabItem, FabItemBig } from "./Fab.styled";
 import HistoryModal from "./HistoryModal/HistoryModal";
 
 type FabProps = {
@@ -22,16 +22,16 @@ const Fab: React.FC<FabProps> = ({download}) => {
     };
     return <FabWrap>
         {isOpen ? <>
-            <FabItem size={"40px"} onClick={() => onHistoryFab()}>
+            <FabItem onClick={() => onHistoryFab()}>
                 <img src={fabIcon.historyIcon} alt="history icon" />
             </FabItem>
-            <FabItem size={"40px"} disabled={!download} onClick={() => downloadCSV(list)}>
+            <FabItem  disabled={!download} onClick={() => downloadCSV(list)}>
                 <img src={fabIcon.downloadIcon} alt="download icon" />
             </FabItem>
         </> : null}
-        <FabItem onClick={() => { setIsOpen(!isOpen); }} size={"56px"}>
+        <FabItemBig onClick={() => setIsOpen(!isOpen)} >
             <img src={isOpen ? fabIcon.crossIcon : fabIcon.openIcon} alt="menu switcher" />
-        </FabItem>
+        </FabItemBig>
         {isHistoryOpen ? <HistoryModal setIsHistoryOpen={setIsHistoryOpen} /> : null}
     </FabWrap>;
 };

@@ -6,6 +6,7 @@ import { selectCharacters } from "../../../store/characters/charactersSelectors"
 import CharacterItem from "./CharacterItem/CharterItem";
 import { List } from "./CharacterList.styled";
 
+
 const CharacterList: React.FC = () => {
     const list = useSelector(selectCharacters);
     return <List>

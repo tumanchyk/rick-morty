@@ -11,7 +11,8 @@ const App: React.FC = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const storedActions = JSON.parse(window.localStorage.getItem("ActionList")) || [];
+        const storedActionsString = window.localStorage.getItem("ActionList");
+        const storedActions = storedActionsString ? JSON.parse(storedActionsString) : [];
         dispatch(setActions(storedActions));
     }, []);
   

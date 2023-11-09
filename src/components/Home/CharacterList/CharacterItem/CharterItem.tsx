@@ -8,7 +8,11 @@ import ICharacterItem from "../../../../types/characterItem";
 
 import { Card, ImgWrap, Img, CharacterInfo } from "./CharacterItem.styled";
 
-const CharacterItem: React.FC<ICharacterItem> = ({ data: { id, image, name, location, origin, species, status } }) => {
+interface CharacterItemProps {
+  data: ICharacterItem;
+}
+
+const CharacterItem: React.FC<CharacterItemProps> = ({ data: { id, image, name, location, origin, species, status }  }) => {
     const dispatch = useDispatch();
 
     const onCharacterLink = (name: string) => {

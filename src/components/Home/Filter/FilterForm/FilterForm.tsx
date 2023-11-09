@@ -34,7 +34,7 @@ const FilterForm: React.FC = () => {
     return <FormControl  sx={{marginLeft: 18 }}>
         <div style={{ display: "flex", position: "relative" }}>
             <MultipleSelectCheckmarks selectItem={selectItem} setSelectItem={setSelectItem} />
-            <MultiInputs selectItem={selectItem} inputArray={inputArray} />
+            <MultiInputs inputArray={inputArray as string[]} selectItem={selectItem} />
             <Button style={{ width: "143px", marginLeft: 316}} type="submit">Find</Button>
         </div>
     </FormControl>;

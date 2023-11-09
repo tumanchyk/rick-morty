@@ -30,7 +30,7 @@ const selectStyles = {
 };
 
 interface SelectProps {
-  setSelectItem: (item: string) => void;
+  setSelectItem: (items: string[]) => void;
   selectItem: string[];
 }
 
