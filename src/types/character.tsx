@@ -11,5 +11,4 @@ export default interface ICharacter {
     location: {
         name: string;
     }
-
 }

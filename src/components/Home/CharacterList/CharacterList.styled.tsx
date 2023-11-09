@@ -5,4 +5,4 @@ display: flex;
 flex-wrap: wrap;
 gap: 27px;
 margin-bottom: 22px;
-`
+`;

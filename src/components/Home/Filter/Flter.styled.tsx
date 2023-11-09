@@ -4,7 +4,7 @@ export const FilterEl = styled.div`
 display: flex;
 align-items: center;
 margin-bottom: 20px;
-`
+`;
 export const Button = styled.button`
 color: #272B33;
 font-family: Roboto;
@@ -25,4 +25,4 @@ transition: all 0.5s ease-out;
     background: #FFF;
 
 }
-`
+`;

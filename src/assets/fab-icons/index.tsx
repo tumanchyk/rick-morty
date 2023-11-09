@@ -7,5 +7,5 @@ export const fabIcon = {
     crossIcon,
     openIcon,
     historyIcon,
-    downloadIcon
-}
+    downloadIcon,
+};

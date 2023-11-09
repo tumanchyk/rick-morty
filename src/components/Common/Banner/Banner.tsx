@@ -1,8 +1,10 @@
+import React from "react";
+
 import { Container, MainTitle } from "./Banner.styled";
 
-const Banner = () => {
+const Banner: React.FC  = () => {
     return <Container>
-      <MainTitle>The Rick and Morty API</MainTitle>
-    </Container>
+        <MainTitle>The Rick and Morty API</MainTitle>
+    </Container>;
 };
 export default Banner;

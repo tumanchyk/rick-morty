@@ -1,9 +1,13 @@
+import React from "react";
+
 import { useSelector } from "react-redux";
-import {Card, ImgWrap, Img, CharacterInfo } from "./Character.styled";
+
 import { Name, InfoTitle, InfoValue, Status, StatusDot } from "../Common/CharacterInfo.styled";
 import { selectCharacterById } from "../../store/characters/charactersSelectors";
 
-const CharacterCard = () => {
+import {Card, ImgWrap, Img, CharacterInfo } from "./Character.styled";
+
+const CharacterCard: React.FC  = () => {
     const character = useSelector(selectCharacterById);
     const { image, name, origin, gender, location, species, status, type } = character;
 
@@ -12,7 +16,8 @@ const CharacterCard = () => {
         <CharacterInfo>
             <Name>{name}</Name>
             <Status>
-                {status === "unknown" ? <StatusDot color={"#9E9E9E"} /> : ( status === "Dead" ? <StatusDot color={"#D63D2E"}/> : <StatusDot color={"#55CC44"} />)}
+                {status === "unknown" ? <StatusDot color={"#9E9E9E"} />
+                    : (status === "Dead" ? <StatusDot color={"#D63D2E"} /> : <StatusDot color={"#55CC44"} />)}
                 {status} - {species}
             </Status>
             <InfoTitle>Origin:</InfoTitle>
@@ -24,7 +29,7 @@ const CharacterCard = () => {
             <InfoTitle>Last known location:</InfoTitle>
             <InfoValue>{location?.name}</InfoValue> 
         </CharacterInfo>
-    </Card>
-}
+    </Card>;
+};
 export default CharacterCard;
 

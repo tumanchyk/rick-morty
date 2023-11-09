@@ -9,7 +9,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 gap: 16px;
-`
+`;
 export const FabItem = styled.button`
 display: flex;
 justify-content: center;
@@ -19,7 +19,8 @@ height: ${props => props.size};
 background: #FFF;
 border: none;
 border-radius: 56px;
-box-shadow: 0px 5px 14px 0px rgba(0, 0, 0, 0.12), 0px 9px 10px 0px rgba(0, 0, 0, 0.14), 0px 5px 5px 0px rgba(0, 0, 0, 0.20);
+box-shadow: 0px 5px 14px 0px rgba(0, 0, 0, 0.12), 0px 9px 10px 0px rgba(0, 0, 0, 0.14),
+0px 5px 5px 0px rgba(0, 0, 0, 0.20);
 cursor: pointer;
 transform: scale(1);
 transition: all 0.5s ease-out;
@@ -34,4 +35,4 @@ transition: all 0.5s ease-out;
     background: #d3d3d3; 
     transform: scale(1.1);
 }
-`
+`;

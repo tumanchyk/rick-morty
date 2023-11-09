@@ -1,10 +1,13 @@
+import React from "react";
+
 import incodeLogo from "../../../assets/incode-logo.png";
 import githubIcon from "../../../assets/socials/github-icon.svg";
 import twitterIcon from "../../../assets/socials/twitter-icon.svg";
 import heartIcon from "../../../assets/socials/heart-icon.svg";
+
 import { FooterEl, FooterWrap, Text, LogoBg, Logo, SocialList, Year } from "./Footer.styled";
 
-const Footer = () => {
+const Footer: React.FC  = () => {
     return <FooterEl>
         <FooterWrap>
             <Text>performed as part of a test case for the company</Text>
@@ -20,7 +23,7 @@ const Footer = () => {
             </SocialList>
 
             <Year>2023</Year>
-      </FooterWrap>
-  </FooterEl>
+        </FooterWrap>
+    </FooterEl>;
 };
 export default Footer;

@@ -1,10 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import HistoryModal from "./HistoryModal/HistoryModal";
+
 import { fabIcon } from "../../../assets/fab-icons";
-import { FabWrap, FabItem } from "./Fab.styled";
+
 import downloadCSV from "../../../unils/dowloadCSV";
 import { selectCharacters } from "../../../store/characters/charactersSelectors";
+
+import { FabWrap, FabItem } from "./Fab.styled";
+import HistoryModal from "./HistoryModal/HistoryModal";
 
 type FabProps = {
     download: boolean
@@ -15,8 +18,8 @@ const Fab: React.FC<FabProps> = ({download}) => {
     const list = useSelector(selectCharacters);
 
     const onHistoryFab = () => {
-        setIsHistoryOpen(true)
-    }
+        setIsHistoryOpen(true);
+    };
     return <FabWrap>
         {isOpen ? <>
             <FabItem size={"40px"} onClick={() => onHistoryFab()}>
@@ -26,8 +29,10 @@ const Fab: React.FC<FabProps> = ({download}) => {
                 <img src={fabIcon.downloadIcon} alt="download icon" />
             </FabItem>
         </> : null}
-        <FabItem onClick={() => { setIsOpen(!isOpen) }} size={"56px"}><img src={isOpen ? fabIcon.crossIcon : fabIcon.openIcon} alt="menu switcher" /></FabItem>
+        <FabItem onClick={() => { setIsOpen(!isOpen); }} size={"56px"}>
+            <img src={isOpen ? fabIcon.crossIcon : fabIcon.openIcon} alt="menu switcher" />
+        </FabItem>
         {isHistoryOpen ? <HistoryModal setIsHistoryOpen={setIsHistoryOpen} /> : null}
-    </FabWrap>
-}
+    </FabWrap>;
+};
 export default Fab;

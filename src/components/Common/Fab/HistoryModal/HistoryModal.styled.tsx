@@ -13,14 +13,14 @@ flex-direction: column;
 align-items: flex-start;
 border-radius: 9px;
 background: #FFF;
-`
+`;
 export const Title = styled.h3`
 font-size: 20px;
 font-weight: 500;
 line-height: 32px;
 letter-spacing: 0.25px;
 margin-bottom: 16px;
-`
+`;
 export const CloseBtn = styled.button`
 position: absolute;
 bottom: 16px;
@@ -43,4 +43,4 @@ transition: all 0.5s ease-out;
     background-color: #1976D2;
     color: #fff;
 }
-`
+`;

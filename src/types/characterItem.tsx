@@ -10,7 +10,6 @@ export default interface ICharacterItem {
     location: {
         name: string;
     }
-
 }
 
              

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import bgImg from "../../../assets/bgImg.png"
+
+import bgImg from "../../../assets/bgImg.png";
 
 
 export const Container = styled.section`
@@ -9,7 +10,7 @@ export const Container = styled.section`
     margin: 0 auto;
     background: #fff url(${bgImg}) no-repeat;
     background-position: 50% 50%;
-`
+`;
 export const MainTitle = styled.h1`
     position: relative;
     top: 50%;
@@ -19,4 +20,4 @@ export const MainTitle = styled.h1`
     font-size: 101px;
     font-weight: 900;
     line-height: 110%;
-`
+`;
