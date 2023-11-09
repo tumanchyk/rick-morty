@@ -1,6 +1,7 @@
 {
     "name": "rick-morty",
     "private": true,
+    "homepage": "https://tumanchyk.github.io/rick-morty/",
     "version": "0.0.0",
     "type": "module",
     "scripts": {
