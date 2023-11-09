@@ -7,6 +7,6 @@ const downloadCSV = (list: ICharacterItem[]) => {
   }).join('\n');
 
   const blob = new Blob([csvData], { type: 'text/csv' });
-  saveAs(blob, 'character_data.csv');
+  saveAs(blob, 'characters_data.csv');
 };
 export default downloadCSV;

@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
 
 export const FabWrap = styled.div`
-position: absolute;
-bottom: -20px;
-right: -28px;
+position: fixed;
+right: 50%;
+bottom: 50px;
+transform: translateX(720px);
 display: flex;
 flex-direction: column;
 align-items: center;

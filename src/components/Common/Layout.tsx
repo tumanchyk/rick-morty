@@ -3,15 +3,21 @@ import { Outlet } from 'react-router-dom';
 import Header from "./Header/Header";
 import Banner from "./Banner/Banner";
 import Footer from "./Footer/Footer";
+import Fab from './Fab/Fab';
+import { useLocation } from 'react-router-dom';
 
 const Layout = () => {
+    const location = useLocation();
+    const currentPath = location.pathname;
+    const containsCharacter = currentPath.includes('character')
     return <>
         <Header />
             <main>
                 <Banner />
                 <Suspense>
                     <Outlet />
-                </Suspense>
+            </Suspense>
+            <Fab download={!containsCharacter} />
             </main>
         <Footer />
     </>

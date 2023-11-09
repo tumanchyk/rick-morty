@@ -1,13 +1,19 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import HistoryModal from "./HistoryModal/HistoryModal";
 import { fabIcon } from "../../../assets/fab-icons";
 import { FabWrap, FabItem } from "./Fab.styled";
 import downloadCSV from "../../../unils/dowloadCSV";
+import { selectCharacters } from "../../../store/characters/charactersSelectors";
 
-
-const Fab = ({download, list}) => {
+type FabProps = {
+    download: boolean
+}
+const Fab: React.FC<FabProps> = ({download}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+    const list = useSelector(selectCharacters);
+
     const onHistoryFab = () => {
         setIsHistoryOpen(true)
     }

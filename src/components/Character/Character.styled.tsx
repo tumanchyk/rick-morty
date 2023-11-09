@@ -4,12 +4,9 @@ const Section = styled.section`
 background: #272B33;
 padding: 80px 0 252px;
 `
-const Wrapper = styled.div`
-position:relative;
+const Card = styled.div`
 width: 1220px;
 margin: 0 auto;
-`
-const Card = styled.div`
 height: 570px;
 display: flex;
 border-radius: 9px;
@@ -32,4 +29,4 @@ display: flex;
 flex-direction: column;
 color: #f5f5f5;
 `
-export {Section, Wrapper, Card, ImgWrap, Img, CharacterInfo}
+export {Section, Card, ImgWrap, Img, CharacterInfo}

@@ -1,6 +1,6 @@
+import { useState } from "react";
 import FilterForm from "./FilterForm/FilterForm";
 import { Button, FilterEl } from "./Flter.styled";
-import { useState } from "react";
 
 const Filter = () => {
     const [isFilterOpen, setIsFilterOpen] = useState(false);
